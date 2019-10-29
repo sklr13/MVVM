@@ -1,0 +1,9 @@
+apply plugin: 'com.android.application'
+apply from: "../base.gradle"
+
+dependencies {
+    implementation project(path: ':core')
+    implementation project(path: ':home')
+    implementation project(path: ':details')
+    implementation project(path: ':splash')
+}

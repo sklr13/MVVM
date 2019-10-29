@@ -1,0 +1,90 @@
+apply from: "../versions.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.android.compileSdk
+    buildToolsVersion versions.android.buildTools
+    flavorDimensions "default"
+    defaultConfig {
+        minSdkVersion versions.android.minSdk
+        targetSdkVersion versions.android.targetSdk
+        versionName versions.application.versionName + " (" + getVersion() + ")"
+        versionCode versions.application.versionCode
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
+        release {
+            //todo change to real key
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+            storeFile file('../keystore/debug.keystore')
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "default"
+    productFlavors {
+        development {
+            versionNameSuffix versions.application.versionName
+            buildConfigField "String", "BASE_URL", wrapStr("https://www.reddit.com/r/redditdev/")
+        }
+        production {
+            buildConfigField "String", "BASE_URL", wrapStr("https://prod/")
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+static String wrapStr(String str) {
+    return '"' + str + '"'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$versions.support.androidx"
+    implementation "androidx.core:core-ktx:$versions.support.androidx"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.support.constraint"
+    implementation "com.google.android.material:material:$versions.ui.material"
+
+    implementation "androidx.navigation:navigation-fragment:$versions.navigation.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation.navigation"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.frameworks.rxandroid"
+    implementation "io.reactivex.rxjava2:rxjava:$versions.frameworks.rxjava"
+
+    implementation "com.github.bumptech.glide:glide:$versions.ui.glide"
+
+    implementation "com.google.dagger:dagger:$versions.frameworks.dagger"
+    kapt "com.google.dagger:dagger-compiler:$versions.frameworks.dagger"
+
+    implementation "com.squareup.retrofit2:retrofit:$versions.frameworks.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.frameworks.gsonConverter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.frameworks.logIntercept"
+
+    testImplementation "junit:junit:$versions.tests.junit"
+    testImplementation "org.mockito:mockito-core:$versions.tests.mockito"
+    testImplementation "org.robolectric:robolectric:$versions.tests.robolectric"
+}

@@ -1,0 +1,2 @@
+include ':app', ':core', ':home', ':details', ':splash'
+rootProject.name='MVVM'
