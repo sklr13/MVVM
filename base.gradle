@@ -44,7 +44,7 @@ android {
     productFlavors {
         development {
             versionNameSuffix versions.application.versionName
-            buildConfigField "String", "BASE_URL", wrapStr("https://www.reddit.com/r/redditdev/")
+            buildConfigField "String", "BASE_URL", wrapStr("https://api.github.com")
         }
         production {
             buildConfigField "String", "BASE_URL", wrapStr("https://prod/")

@@ -1,2 +1,2 @@
-include ':app', ':core', ':home', ':details', ':splash'
+include ':app', ':core', ':home', ':details', ':splash', ':gradientlayout', ':ui', ':network'
 rootProject.name='MVVM'

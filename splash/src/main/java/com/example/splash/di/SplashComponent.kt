@@ -1,7 +1,6 @@
 package com.example.splash.di
 
 import com.example.core.AppComponentContract
-import com.example.core.di.PresenterScope
 import com.example.splash.SplashActivity
 
 import dagger.Component

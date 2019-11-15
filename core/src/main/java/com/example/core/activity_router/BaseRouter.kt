@@ -10,4 +10,6 @@ interface BaseRouter {
     }
 
     fun startActivity(currentActivityIntent: Activity, activityKey: String)
+
+    fun replaceActivity(currentActivityIntent: Activity, activityKey: String)
 }

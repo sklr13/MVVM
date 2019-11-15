@@ -5,4 +5,5 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$versions.ui.glide"
 
     implementation project(path: ':core')
+    implementation project(path: ':ui')
 }

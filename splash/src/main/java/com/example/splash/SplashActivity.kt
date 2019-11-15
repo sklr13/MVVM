@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_layout)
         Handler().postDelayed({
-            activityRouter.startActivity(this, BaseRouter.HOME_ACTIVITY)
+            activityRouter.replaceActivity(this, BaseRouter.HOME_ACTIVITY)
         },3000)
     }
 }

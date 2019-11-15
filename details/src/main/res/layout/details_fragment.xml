@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/full_size"
+    android:background="@color/design_default_color_primary"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/title_text"
+        android:layout_gravity="center"
+        android:text="FRAGMENT2" />
+
+</LinearLayout>

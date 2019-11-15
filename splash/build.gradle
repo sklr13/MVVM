@@ -3,4 +3,6 @@ apply from: "../base.gradle"
 
 dependencies {
     implementation project(path: ':core')
+    implementation project(path: ':gradientlayout')
+    implementation project(path: ':ui')
 }
