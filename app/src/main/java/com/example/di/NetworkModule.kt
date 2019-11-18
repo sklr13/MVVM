@@ -3,6 +3,7 @@ package com.example.di
 import com.example.mvvm.BuildConfig
 import com.example.network.retrofit.Api
 import com.google.gson.Gson
+import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import okhttp3.OkHttpClient
@@ -12,7 +13,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import javax.inject.Singleton
 
-
+@Module
 class NetworkModule {
 
     @Provides

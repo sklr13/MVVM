@@ -1,18 +1,18 @@
-package com.example.splash.di
+package com.example.home.di
 
 import com.example.core.di.AppComponentContract
-import com.example.splash.SplashActivity
+import com.example.home.HomeFragment
 
 import dagger.Component
 
 @Component(dependencies = [AppComponentContract::class])
-internal interface SplashComponent {
+internal interface HomeComponent {
 
-    fun inject(activity: SplashActivity)
+    fun inject(target: HomeFragment)
 
     companion object {
-        fun setup(appComponentContract: AppComponentContract): SplashComponent {
-            return DaggerSplashComponent
+        fun setup(appComponentContract: AppComponentContract): HomeComponent {
+            return DaggerHomeComponent
                 .builder()
                 .plus(appComponentContract)
                 .build()
@@ -24,6 +24,6 @@ internal interface SplashComponent {
 
         fun plus(appComponentContract: AppComponentContract):Builder
 
-        fun build(): SplashComponent
+        fun build(): HomeComponent
     }
 }

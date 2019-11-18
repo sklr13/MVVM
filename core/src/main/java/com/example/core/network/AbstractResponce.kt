@@ -1,7 +1,7 @@
 package com.example.core.network
 
-import com.example.network.HttpStatus
-import com.example.network.error.AuthorizationException
+import com.example.core.network.error.AuthorizationException
+import com.example.core.network.error.ErrorInfo
 import org.json.JSONException
 
 abstract class AbstractResponse protected constructor() {

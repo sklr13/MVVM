@@ -1,7 +1,7 @@
 package com.example
 
 import android.app.Application
-import com.example.core.AppComponentContract
+import com.example.core.di.AppComponentContract
 import com.example.core.BaseApplication
 import com.example.di.AppComponent
 import com.example.di.DaggerAppComponent

@@ -1,4 +1,4 @@
-package com.example.core.network
+package com.example.core.network.error
 
 import android.text.TextUtils
 import org.json.JSONException

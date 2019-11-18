@@ -1,4 +1,4 @@
-package com.example.network
+package com.example.core.network
 
 object HttpStatus {
 

@@ -55,6 +55,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 static String wrapStr(String str) {
@@ -66,8 +70,11 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$versions.support.androidx"
     implementation "androidx.core:core-ktx:$versions.support.androidx"
+    implementation "android.arch.lifecycle:extensions:$versions.support.lifecycle"
     implementation "androidx.constraintlayout:constraintlayout:$versions.support.constraint"
     implementation "com.google.android.material:material:$versions.ui.material"
+
+    implementation "androidx.fragment:fragment-ktx:$versions.support.fragmentktx"
 
     implementation "androidx.navigation:navigation-fragment:$versions.navigation.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation.navigation"

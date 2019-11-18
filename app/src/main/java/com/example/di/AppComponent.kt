@@ -1,21 +1,27 @@
 package com.example.di
 
 import android.app.Application
-import com.example.core.AppComponentContract
+import com.example.core.di.AppComponentContract
 import com.example.MainActivity
-import com.example.splash.SplashActivity
+import com.example.core.di.ViewModelFactoryModule
+import com.example.home.di.HomeViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [AppModule::class, NetworkModule::class])
+@Component(
+    modules = [AppModule::class, NetworkModule::class,
+        ViewModelFactoryModule::class, HomeViewModelModule::class]
+)
 interface AppComponent : AppComponentContract {
 
     fun inject(target: MainActivity)
 
-    fun inject(target: SplashActivity)
+//    fun inject(target: SplashActivity)
+//
+//    fun inject(target: HomeFragment)
 
     @Component.Builder
     interface Builder {
