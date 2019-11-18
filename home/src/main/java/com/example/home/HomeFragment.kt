@@ -53,5 +53,6 @@ class HomeFragment : BaseFragment() {
 
     private fun showList(reposList: List<RepositoryModel>?) {
         repositoryAdapter?.items = reposList
+        repositoryAdapter?.notifyDataSetChanged()
     }
 }
