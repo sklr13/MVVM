@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.core.BaseApplication
 import com.example.core.data.domain_entity.RepositoryModel
 import com.example.core.ui.BaseFragment
@@ -19,6 +20,8 @@ class HomeFragment : BaseFragment() {
     @Inject
     lateinit var homeViewModelFactory: ViewModelProvider.Factory
 
+    private var repositoryAdapter: RepositoryAdapter? = null
+
     private val homeViewModel: HomeViewModel by viewModels {
         homeViewModelFactory
     }
@@ -28,6 +31,7 @@ class HomeFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         HomeComponent.setup((activity?.application as BaseApplication).getComponent()).inject(this)
         super.onCreate(savedInstanceState)
+        repositoryAdapter = RepositoryAdapter()
     }
 
     override fun onCreateView(
@@ -42,7 +46,12 @@ class HomeFragment : BaseFragment() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<RecyclerView>(R.id.repository_list).adapter = repositoryAdapter
+    }
+
     private fun showList(reposList: List<RepositoryModel>?) {
-        Log.e("LIIIIIIZZZZTTTTTTTTTTT", "size${reposList?.size}")
+        repositoryAdapter?.items = reposList
     }
 }
