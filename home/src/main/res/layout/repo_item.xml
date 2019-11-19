@@ -9,9 +9,20 @@
     <TextView
         android:id="@+id/repos_name"
         style="@style/wide"
+        android:padding="@dimen/default_padding"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tool:text="Text" />
+
+    <TextView
+        android:id="@+id/repos_description"
+        style="@style/wide"
+        android:padding="@dimen/default_padding"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repos_name"
         tool:text="Text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

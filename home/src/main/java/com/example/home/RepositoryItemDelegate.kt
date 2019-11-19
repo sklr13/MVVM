@@ -29,6 +29,7 @@ class RepositoryItemDelegate : AdapterDelegate<List<RepositoryModel>>() {
 
         fun bind(repoModel: RepositoryModel) {
             with(itemView) { findViewById<TextView>(R.id.repos_name) }.text = repoModel.name
+            with(itemView) { findViewById<TextView>(R.id.repos_description) }.text = repoModel.description
         }
     }
 }

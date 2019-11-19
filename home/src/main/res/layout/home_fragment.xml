@@ -3,17 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     style="@style/full_size"
-    android:background="@color/colorAccent"
+    android:background="@color/bottom_color_bright"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/repository_list"
         style="@style/full_size"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tool:listitem="@layout/repo_item"
-        />
-
-
-
+        tool:listitem="@layout/repo_item" />
 
 </LinearLayout>

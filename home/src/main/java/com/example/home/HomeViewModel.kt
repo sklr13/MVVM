@@ -3,6 +3,7 @@ package com.example.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.core.data.ErrorModel
 import com.example.core.data.domain_entity.RepositoryModel
 import com.example.core.data.mappers.RepoNetworkDomainMapper
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -18,9 +19,14 @@ class HomeViewModel @Inject constructor(
             loadRepos()
         }
     }
+    private val errorData: MutableLiveData<ErrorModel> = MutableLiveData()
 
     fun getRepos(): LiveData<List<RepositoryModel>> {
         return repositories
+    }
+
+    fun getErrors(): LiveData<ErrorModel> {
+        return errorData
     }
 
     private fun loadRepos() {
@@ -28,7 +34,15 @@ class HomeViewModel @Inject constructor(
             .subscribeOn(Schedulers.io())
             .map(mapper)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ repositories.postValue(it) }, {})
+            .subscribe({ repositories.value = it },
+                { t -> handleError(t, ::loadRepos)})
+    }
+
+    private fun handleError(
+        throwable: Throwable?,
+        runnable: () -> Unit
+    ) {
+        errorData.value = ErrorModel(throwable, runnable)
     }
 }
 

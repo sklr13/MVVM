@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    style="@style/wide"
+    android:background="@android:color/white"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/error_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/default_padding"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:src="@drawable/ic_error_black"
+        app:layout_constraintBottom_toTopOf="@+id/error_message_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/error_message_tv"
+        style="@style/wide"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/retry_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/error_img"
+        tool:text="Error" />
+
+    <Button
+        android:id="@+id/retry_btn"
+        style="@style/own_size"
+        android:text="@string/retry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/error_message_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
