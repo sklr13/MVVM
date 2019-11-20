@@ -19,10 +19,6 @@ interface AppComponent : AppComponentContract {
 
     fun inject(target: MainActivity)
 
-//    fun inject(target: SplashActivity)
-//
-//    fun inject(target: HomeFragment)
-
     @Component.Builder
     interface Builder {
 
