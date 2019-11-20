@@ -1,4 +1,4 @@
-package com.example.network.retrofit
+package com.example.network
 
 import com.example.core.data.network_entity.responce.RepositoryResponce
 import com.example.core.network.RetrofitResponseTransformer

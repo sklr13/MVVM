@@ -63,6 +63,10 @@ android {
     androidExtensions {
         experimental = true
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 static String wrapStr(String str) {
@@ -96,6 +100,6 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.frameworks.logIntercept"
 
     testImplementation "junit:junit:$versions.tests.junit"
-    testImplementation "org.mockito:mockito-core:$versions.tests.mockito"
-    testImplementation "org.robolectric:robolectric:$versions.tests.robolectric"
+    testImplementation "io.mockk:mockk:$versions.tests.mockk"
+    testImplementation "android.arch.core:core-testing:$versions.tests.testlifecycle"
 }

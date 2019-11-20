@@ -19,7 +19,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
-        retry_btn.setOnClickListener {
+        retryBtn.setOnClickListener {
             val currentFragment = supportFragmentManager.getCurrentNavigationFragment()
             if (currentFragment is BaseFragment) {
                 errorContent.visibility = GONE
@@ -44,6 +44,6 @@ class MainActivity : BaseActivity() {
 
     private fun showErrorScreeen(message: String?) {
         errorContent.visibility = VISIBLE
-        error_message_tv.text = message
+        errorMessageTV.text = message
     }
 }

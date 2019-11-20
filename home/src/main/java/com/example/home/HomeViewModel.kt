@@ -2,7 +2,7 @@ package com.example.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.core.BaseViewModel
 import com.example.core.data.ErrorModel
 import com.example.core.data.domain_entity.RepositoryModel
 import com.example.core.data.mappers.RepoNetworkDomainMapper
@@ -13,10 +13,10 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repository: HomeRepository,
     private val mapper: RepoNetworkDomainMapper
-) : ViewModel() {
+) : BaseViewModel() {
     private val repositories: MutableLiveData<List<RepositoryModel>> by lazy {
         MutableLiveData<List<RepositoryModel>>().also {
-            loadRepos()
+            loadRepos(it)
         }
     }
     private val errorData: MutableLiveData<ErrorModel> = MutableLiveData()
@@ -29,13 +29,14 @@ class HomeViewModel @Inject constructor(
         return errorData
     }
 
-    private fun loadRepos() {
+    private fun loadRepos(data: MutableLiveData<List<RepositoryModel>>) {
         repository.getReposList()
             .subscribeOn(Schedulers.io())
             .map(mapper)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ repositories.value = it },
-                { t -> handleError(t, ::loadRepos)})
+            .subscribe({ data.postValue(it) },
+                { t -> handleError(t) { loadRepos(data) } })
+            .run(compositeDisposable::add)
     }
 
     private fun handleError(

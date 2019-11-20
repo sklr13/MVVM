@@ -14,30 +14,30 @@
         android:layout_marginTop="@dimen/default_padding"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_error_black"
-        app:layout_constraintBottom_toTopOf="@+id/error_message_tv"
+        app:layout_constraintBottom_toTopOf="@+id/errorMessageTV"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/error_message_tv"
+        android:id="@+id/errorMessageTV"
         style="@style/wide"
         android:layout_marginBottom="@dimen/default_margin"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/retry_btn"
+        app:layout_constraintBottom_toTopOf="@+id/retryBtn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/error_img"
         tool:text="Error" />
 
     <Button
-        android:id="@+id/retry_btn"
+        android:id="@+id/retryBtn"
         style="@style/own_size"
         android:text="@string/retry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/error_message_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/errorMessageTV" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

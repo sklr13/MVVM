@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import com.example.core.activity_router.BaseRouter
 import com.example.core.activity_router.BaseRouter.Companion.HOME_ACTIVITY
-import java.lang.UnsupportedOperationException
+import com.example.core.errors.UnsupportedActivityTypeException
 
 class ActivityRouter : BaseRouter {
 
@@ -41,7 +41,6 @@ class ActivityRouter : BaseRouter {
 
     private fun getClassByKey(activityKey: String): Class<*>? = when (activityKey) {
         HOME_ACTIVITY -> MainActivity::class.java
-        //todo add own exception
-        else -> throw UnsupportedOperationException(activityKey)
+        else -> throw UnsupportedActivityTypeException(activityKey)
     }
 }

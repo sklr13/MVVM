@@ -1,4 +1,4 @@
-package com.example.network.retrofit
+package com.example.network
 
 import io.reactivex.Single
 import okhttp3.ResponseBody

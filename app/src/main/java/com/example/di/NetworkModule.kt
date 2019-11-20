@@ -1,7 +1,7 @@
 package com.example.di
 
 import com.example.mvvm.BuildConfig
-import com.example.network.retrofit.Api
+import com.example.network.Api
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
